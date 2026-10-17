@@ -1,0 +1,18 @@
+---
+const pillars = [
+  { index: '01', title: 'Think in systems.', label: 'ARCHITECTURE', description: 'Clear boundaries. Predictable data. Strong foundations.', tags: 'Architecture / TypeScript / State', kind: 'systems' },
+  { index: '02', title: 'Build with intention.', label: 'INTERFACE ENGINEERING', description: 'Reusable interfaces. Thoughtful interactions. Deliberate rendering.', tags: 'React / Next.js / Design systems', kind: 'interface' },
+  { index: '03', title: 'Refine what matters.', label: 'QUALITY & PERFORMANCE', description: 'Fast experiences. Useful tests. Accessible details.', tags: 'Performance / Testing / Accessibility', kind: 'quality' },
+];
+---
+<div class="expertise-overview" data-reveal-group>
+  {pillars.map(pillar => <article class={`expertise-pillar pillar-${pillar.kind}`} data-reveal>
+    <div class="pillar-top mono"><span>{pillar.label}</span><span>{pillar.index}</span></div>
+    <div class="pillar-art" aria-hidden="true">
+      {pillar.kind === 'systems' && <svg viewBox="0 0 240 100" fill="none"><rect x="88" y="8" width="64" height="26" rx="4"/><path d="M120 34V53M44 53H196M44 53V66M120 53V66M196 53V66"/><rect x="14" y="66" width="60" height="26" rx="4"/><rect x="90" y="66" width="60" height="26" rx="4"/><rect x="166" y="66" width="60" height="26" rx="4"/><circle cx="120" cy="21" r="3"/><path d="M31 79H57M107 79H133M183 79H209"/></svg>}
+      {pillar.kind === 'interface' && <svg viewBox="0 0 240 100" fill="none"><rect x="35" y="8" width="170" height="84" rx="5"/><path d="M35 27H205M86 27V92"/><circle cx="46" cy="18" r="1"/><circle cx="53" cy="18" r="1"/><circle cx="60" cy="18" r="1"/><rect x="98" y="40" width="43" height="37" rx="3"/><path d="M154 44H189M154 54H178M154 70H188M49 42H72M49 53H66M49 64H72"/></svg>}
+      {pillar.kind === 'quality' && <svg viewBox="0 0 240 100" fill="none"><path d="M20 80H220M20 14V80"/><path d="M28 70L60 60L87 65L120 40L149 45L184 19L214 11" class="quality-line"/><circle cx="120" cy="40" r="5"/><circle cx="184" cy="19" r="5"/><path d="M60 60V80M120 45V80M184 24V80" stroke-dasharray="3 4"/></svg>}
+    </div>
+    <h3>{pillar.title}</h3><p>{pillar.description}</p><span class="pillar-tags mono">{pillar.tags}</span>
+  </article>)}
+</div>

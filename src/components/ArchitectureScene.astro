@@ -1,0 +1,50 @@
+---
+const layers = [
+  { id: 'ui', title: 'UI', description: 'Accessible interfaces, responsive layouts, and thoughtful interactions.', tools: 'Accessibility · Responsive design · Motion' },
+  { id: 'components', title: 'Components', description: 'Reusable building blocks with clear APIs and predictable behavior.', tools: 'React · TypeScript · Design systems' },
+  { id: 'architecture', title: 'Architecture', description: 'Maintainable systems with clear boundaries and deliberate data flow.', tools: 'State management · Testing · Performance' },
+];
+---
+<div class="architecture-scene" data-tilt>
+  <div class="scene-top mono"><span><i class="status-dot"></i> EXPLORE THE LAYERS</span><span>01 — 03</span></div>
+  <div class="scene-visual" aria-hidden="true">
+    <svg viewBox="0 0 500 400" fill="none" class="architecture-svg">
+      <defs>
+        <pattern id="scene-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" stroke="currentColor" stroke-opacity=".08" stroke-width=".7"/></pattern>
+        <linearGradient id="layer-fill" x1="140" y1="120" x2="370" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#262a35"/><stop offset="1" stop-color="#16171c"/></linearGradient>
+        <linearGradient id="top-fill" x1="100" y1="100" x2="400" y2="250"><stop stop-color="#292d3b"/><stop offset="1" stop-color="#171a22"/></linearGradient>
+      </defs>
+      <rect width="500" height="400" fill="url(#scene-grid)"/>
+      <path d="M250 37V355M35 200H465" stroke="#71819d" stroke-opacity=".2" stroke-dasharray="3 7"/>
+      <g class="scene-layer layer-bottom" data-scene-layer="architecture">
+        <path d="M90 255L250 178L410 255L250 333Z" fill="url(#layer-fill)" stroke="#65728e"/>
+        <path d="M90 255V270L250 348L410 270V255M250 333V348" stroke="#46516b"/>
+        <path d="M129 254L250 196L371 254L250 313Z" stroke="#687794" stroke-opacity=".3"/>
+        <path d="M167 255L250 215L333 255L250 295Z" stroke="#687794" stroke-opacity=".35"/>
+      </g>
+      <g class="scene-layer layer-middle" data-scene-layer="components">
+        <path d="M90 192L250 115L410 192L250 270Z" fill="url(#layer-fill)" stroke="#8199cd"/>
+        <path d="M90 192V207L250 285L410 207V192M250 270V285" stroke="#54668e"/>
+        <path d="M161 191L250 148L339 191L250 235Z" fill="#809ee8" fill-opacity=".07" stroke="#809ee8" stroke-opacity=".5"/>
+        <path d="M206 192L250 171L294 192L250 213Z" stroke="#a3bdff" stroke-width="1.5"/>
+        <circle cx="250" cy="192" r="4" fill="#b8ccff"/>
+      </g>
+      <g class="scene-layer layer-top is-active" data-scene-layer="ui">
+        <path d="M90 129L250 52L410 129L250 207Z" fill="url(#top-fill)" stroke="#b6caff" stroke-width="1.2"/>
+        <path d="M90 129V144L250 222L410 144V129M250 207V222" stroke="#627cac"/>
+        <path d="M129 129L250 71L371 129L250 188Z" stroke="#a0baff" stroke-opacity=".25"/>
+        <path d="M181 129L250 96L319 129L250 163Z" fill="#83a6ff" fill-opacity=".1" stroke="#8cabff"/>
+        <path d="M227 124L216 129L227 135M273 124L284 129L273 135M258 116L243 141" stroke="#c0d2ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g stroke="#8aaaff" stroke-dasharray="3 5" class="scene-connections"><path d="M90 129V255M410 129V255M250 222V270"/></g>
+      <g fill="#a6bfff"><circle cx="90" cy="129" r="3"/><circle cx="410" cy="129" r="3"/><circle cx="90" cy="255" r="3"/><circle cx="410" cy="255" r="3"/></g>
+    </svg>
+  </div>
+  <div class="scene-controls" role="group" aria-label="Explore engineering layers">
+    {layers.map((layer, index) => <button type="button" data-layer-choice={layer.id} data-description={layer.description} data-tools={layer.tools} aria-pressed={index === 0} aria-controls="scene-detail"><span class="mono">0{index + 1}</span>{layer.title}</button>)}
+  </div>
+  <div class="scene-detail" id="scene-detail" aria-live="polite" aria-atomic="true">
+    <p class="scene-description">{layers[0].description}</p>
+    <p class="scene-tools">{layers[0].tools}</p>
+  </div>
+</div>

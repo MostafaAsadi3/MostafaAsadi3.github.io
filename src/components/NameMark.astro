@@ -1,0 +1,11 @@
+---
+import { profile } from '../data/portfolio';
+const words = profile.name.split(' ');
+---
+<span class="brand-name">
+  <span class="sr-only">{profile.name}</span>
+  <span class="brand-wordmark" aria-hidden="true">
+    {words.map((word, wordIndex) => <span class="name-word">{Array.from(word).map((letter, index) => <span class="name-letter" style={`--letter-order:${words.slice(0, wordIndex).join('').length + index}`}>{letter}</span>)}</span>)}
+  </span>
+  <span class="brand-role">Senior Frontend Engineer</span>
+</span>

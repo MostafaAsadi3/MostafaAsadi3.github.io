@@ -1,0 +1,15 @@
+---
+interface Props { id: string }
+const { id } = Astro.props;
+---
+{id === 'sepah' && <div class="bank-study">
+  <div class="study-bar mono"><span>INTERNET BANKING</span><span>SEPAH</span></div>
+  <div class="bank-study-body"><div class="bank-study-nav"><i></i><i></i><i></i><i></i></div><div class="bank-study-content"><div class="bank-account"><span class="mono">ACCOUNT OVERVIEW</span><div class="balance-placeholder"></div><div class="account-line"></div></div><div class="bank-services"><span>Accounts</span><span>Transfers</span><span>Payments</span></div><div class="transaction-lines"><i></i><i></i><i></i></div></div></div>
+</div>}
+{id === 'scf' && <div class="scf-study">
+  <div class="study-bar mono"><span>ELECTRONIC INSTRUMENTS</span><span>SCF</span></div>
+  <div class="instrument-documents">{['Promissory note', 'Bill of exchange'].map((label, i) => <div class="instrument-document"><span class="mono">0{i + 1} / DIGITAL</span><svg viewBox="0 0 32 36" fill="none"><path d="M7 2h12l7 7v25H7zM19 2v8h7M12 16h9M12 21h9M12 26h5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg><strong>{label}</strong><div class="document-signature"></div></div>)}</div>
+  <div class="instrument-flow mono"><span>ISSUE</span><i></i><span>SIGN</span><i></i><span>TRACK</span></div>
+</div>}
+{id === 'banking' && <div class="mock-identity"><div class="mock-sidebar"><b>◈</b><i></i><i></i><i></i></div><div class="mock-content"><div class="mock-top"><span>ACCESS OVERVIEW</span><span>•••</span></div><div class="identity-symbol"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8L51 16V31C51 43 42 52 32 57C22 52 13 43 13 31V16L32 8Z" stroke="currentColor" stroke-width="1.5"/><path d="M23 32L29 38L42 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="mock-data-row"><span class="mock-line"></span><span class="mock-status"></span></div><div class="mock-data-row"><span class="mock-line short"></span><span class="mock-status"></span></div><div class="mock-data-row"><span class="mock-line"></span><span class="mock-status"></span></div></div></div>}
+{id === 'admin' && <div class="mock-dashboard"><div class="mock-top"><span>OPERATIONS OVERVIEW</span><span>•••</span></div><div class="dashboard-tiles"><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span></div><div class="dashboard-chart">{[35,55,42,73,59,84,67,92,79,100,87,111].map((height, j) => <i style={`--bar-height:${height}px;--bar-delay:${j * 40}ms`}></i>)}</div><div class="dashboard-baseline"></div></div>}

@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  site: process.env.SITE_URL || undefined,
+  site: process.env.SITE_URL || 'https://mostafaasadi3.github.io',
   base: process.env.BASE_PATH || '/',
   trailingSlash: 'always',
   integrations: [react()],

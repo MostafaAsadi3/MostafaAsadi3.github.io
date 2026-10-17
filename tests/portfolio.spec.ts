@@ -1,6 +1,27 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('SEO metadata, crawler files, and structured data describe the live site', async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle('Mostafa Asadi | Senior Frontend Engineer, React & Next.js');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://mostafaasadi3.github.io/');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://mostafaasadi3.github.io/social-card.png');
+  const graph = JSON.parse(await page.locator('script[type="application/ld+json"]').innerText())['@graph'];
+  expect(graph.find((entity: { '@type': string }) => entity['@type'] === 'Person')).toMatchObject({ name: 'Mostafa Asadi', jobTitle: 'Senior Frontend Engineer', sameAs: ['https://github.com/MostafaAsadi3', 'https://www.linkedin.com/in/mostafa-asadi-78a597271/'] });
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.ok()).toBeTruthy();
+  expect(await sitemap.text()).toContain('<loc>https://mostafaasadi3.github.io/resume/</loc>');
+  expect(await sitemap.text()).not.toContain('404');
+  const robots = await request.get('/robots.txt');
+  expect(await robots.text()).toContain('Sitemap: https://mostafaasadi3.github.io/sitemap.xml');
+  await page.goto('/resume/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://mostafaasadi3.github.io/resume/');
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /resume: senior frontend engineering/);
+  await page.goto('/404.html');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+  await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+});
+
 test('engineering layers support pointer and keyboard selection and pause offscreen', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');

@@ -5,7 +5,7 @@ export const profile = {
   github: 'https://github.com/MostafaAsadi3',
   linkedin: 'https://www.linkedin.com/in/mostafa-asadi-78a597271/',
   description:
-    'Senior Frontend Engineer focused on frontend architecture, React, Next.js, TypeScript, and thoughtful web experiences.',
+    'Mostafa Asadi, Senior Frontend Engineer specializing in React, Next.js and TypeScript. Explore banking projects, frontend architecture and selected work.',
 };
 
 export interface Expertise {

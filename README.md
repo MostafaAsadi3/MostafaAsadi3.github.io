@@ -80,4 +80,10 @@ To use an installed Chromium browser instead of downloading one, set `PLAYWRIGHT
 - Reduced-motion preferences, visible focus states, a skip link, and content that remains visible if JavaScript is unavailable.
 - Static résumé and 404 routes; locally bundled Latin fonts; custom social preview artwork.
 
-The project has no public deployment until connected to the owner’s GitHub repository and its Pages workflow runs successfully.
+## Search engine metadata
+
+Page titles and descriptions, canonical URLs, Person / WebSite / WebPage structured data, and social preview metadata are generated in the shared layout. The resume has its own metadata; the 404 page is marked `noindex`.
+
+`/sitemap.xml` lists the home and resume pages. `/robots.txt` allows crawling and points to the sitemap. Production URLs follow `SITE_URL` and `BASE_PATH`, with the current public site as the default origin.
+
+After deployment, the owner can verify the URL-prefix property in Google Search Console and submit `sitemap.xml`. Search indexing and rankings are controlled by search engines, not guaranteed by these changes.

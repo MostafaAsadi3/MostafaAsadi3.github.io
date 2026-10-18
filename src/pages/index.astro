@@ -8,10 +8,10 @@ import ProjectVisual from '../components/ProjectVisual.astro';
 import { profile, toolkit, work } from '../data/portfolio';
 const resumeUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/resume/`;
 const principles = [
-  { title: 'Understand the problem.', text: 'Start with the user, the problem, and the constraints.' },
-  { title: 'Set clear boundaries.', text: 'Define ownership and keep components easy to reason about.' },
-  { title: 'Measure the experience.', text: 'Profile bottlenecks. Test essential behavior. Follow the evidence.' },
-  { title: 'Refine the details.', text: 'Loading, errors, and keyboard access are part of the experience.' },
+  { title: 'Understand the problem', text: 'Start with the user, the problem, and the constraints' },
+  { title: 'Set clear boundaries', text: 'Define ownership and keep components easy to reason about' },
+  { title: 'Measure the experience', text: 'Profile bottlenecks Test essential behavior Follow the evidence' },
+  { title: 'Refine the details', text: 'Loading, errors, and keyboard access are part of the experience' },
 ];
 ---
 <Layout>
@@ -39,46 +39,46 @@ const principles = [
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="hero-identity"><NameMark /></div>
-        <h1 id="hero-title">Thoughtful interfaces.<br /><span class="muted">Solid engineering.</span></h1>
-        <p class="hero-intro">I build accessible interfaces and maintainable frontend systems with React, Next.js, and TypeScript.</p>
+        <h1 id="hero-title">Thoughtful interfaces<br /><span class="muted">Solid engineering</span></h1>
+        <p class="hero-intro">I build accessible interfaces and maintainable frontend systems with React, Next.js, and TypeScript</p>
         <div class="hero-actions"><a class="button button-primary" href="#expertise">Explore my expertise <span aria-hidden="true">↘</span></a></div>
       </div>
       <div class="hero-art"><ArchitectureScene /></div>
-      <div class="hero-bottom mono"><span>THINK IN SYSTEMS. <span class="muted">BUILD FOR PEOPLE.</span></span><a href="#expertise" aria-label="Scroll to engineering expertise">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-bottom mono"><span>THINK IN SYSTEMS <span class="muted">BUILD FOR PEOPLE</span></span><a href="#expertise" aria-label="Scroll to engineering expertise">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
     </section>
 
     <section class="expertise-section section container" id="expertise" data-chapter="01" aria-labelledby="expertise-title">
-      <div class="section-heading" data-reveal><div><p class="section-index mono"><span>01</span> / THE EXPERTISE</p><h2 id="expertise-title">Deep foundations.<br /><span class="muted">Deliberate execution.</span></h2></div><p class="section-intro">Nine disciplines. One considered experience.</p></div>
+      <div class="section-heading" data-reveal><div><p class="section-index mono"><span>01</span> / THE EXPERTISE</p><h2 id="expertise-title">Deep foundations<br /><span class="muted">Deliberate execution</span></h2></div><p class="section-intro">Nine disciplines One considered experience</p></div>
       <ExpertiseOverview />
-      <div class="expertise-detail-heading" data-reveal><span class="mono">EXPLORE THE DISCIPLINES</span><p>From the foundation to the final detail.</p></div>
+      <div class="expertise-detail-heading" data-reveal><span class="mono">EXPLORE THE DISCIPLINES</span><p>From the foundation to the final detail</p></div>
       <div data-reveal><ExpertiseExplorer client:visible={{ rootMargin: '300px' }} /></div>
-      <div class="toolkit"><div class="toolkit-heading" data-reveal><h3 class="mono">THE TOOLKIT</h3><p>Tools follow the problem.</p></div><div class="toolkit-grid" data-reveal-group>{toolkit.map(group => <div class="toolkit-group" data-reveal><h4 class="mono">{group.label}</h4><ul>{group.items.map(item => <li>{item}</li>)}</ul></div>)}</div></div>
+      <div class="toolkit"><div class="toolkit-heading" data-reveal><h3 class="mono">THE TOOLKIT</h3><p>Tools follow the problem</p></div><div class="toolkit-grid" data-reveal-group>{toolkit.map(group => <div class="toolkit-group" data-reveal><h4 class="mono">{group.label}</h4><ul>{group.items.map(item => <li>{item}</li>)}</ul></div>)}</div></div>
     </section>
 
     <section class="approach-section section" id="approach" data-chapter="02" aria-labelledby="approach-title"><div class="container approach-grid">
-      <div class="approach-heading" data-reveal><p class="section-index mono"><span>02</span> / THE APPROACH</p><h2 id="approach-title">Think clearly.<br /><span class="accent">Build thoughtfully.</span></h2><div class="approach-glyph" aria-hidden="true"><span></span><span></span><span></span><i>+</i></div></div>
+      <div class="approach-heading" data-reveal><p class="section-index mono"><span>02</span> / THE APPROACH</p><h2 id="approach-title">Think clearly<br /><span class="accent">Build thoughtfully</span></h2><div class="approach-glyph" aria-hidden="true"><span></span><span></span><span></span><i>+</i></div></div>
       <ol class="principles" data-reveal-group>{principles.map((principle, i) => <li data-reveal><span class="principle-number mono">0{i + 1}</span><div><h3>{principle.title}</h3><p>{principle.text}</p></div><span class="principle-plus" aria-hidden="true">+</span></li>)}</ol>
     </div></section>
 
     <section class="work-section section container" id="work" data-chapter="03" aria-labelledby="work-title">
-      <div class="section-heading" data-reveal><div><p class="section-index mono"><span>03</span> / SELECTED WORK</p><h2 id="work-title">Banking products.<br /><span class="muted">Enterprise experience.</span></h2></div><p class="section-intro">Bank Sepah internet banking, Tosan SCF, and enterprise applications.</p></div>
+      <div class="section-heading" data-reveal><div><p class="section-index mono"><span>03</span> / SELECTED WORK</p><h2 id="work-title">Banking products<br /><span class="muted">Enterprise experience</span></h2></div><p class="section-intro">Bank Sepah internet banking, Tosan SCF, and enterprise applications</p></div>
       <div class="work-grid" data-reveal-group>{work.map((project, i) => <article class={`work-card work-${project.id}`} data-reveal>
         <div class="work-visual" aria-hidden="true"><ProjectVisual id={project.id} />
           <span class="visual-index mono">0{i + 1}</span>
         </div>
         <div class="work-copy"><p class="work-category mono">{project.category}</p><h3>{project.title}</h3><p class="work-subtitle">{project.subtitle}</p><p class="work-description">{project.description}</p><div class="project-tags">{project.tags.map(tag => <span>{tag}</span>)}</div><details><summary>Implementation details <span aria-hidden="true">+</span></summary><div class="project-details"><div class="project-detail-block"><h4>My contribution</h4><p>{project.contribution}</p></div><div class="project-detail-block"><h4>Tech stack</h4><ul class="project-stack">{project.stack.map(technology => <li>{technology}</li>)}</ul></div>{project.implementation.map(detail => <div class="project-detail-block"><h4>{detail.label}</h4><p>{detail.text}</p></div>)}<p class="project-note">{project.note}</p></div></details></div>
       </article>)}</div>
-      <p class="work-footnote mono"><span aria-hidden="true">↳</span> CONCEPTUAL INTERFACE STUDIES · NO CLIENT DATA.</p>
+      <p class="work-footnote mono"><span aria-hidden="true">↳</span> CONCEPTUAL INTERFACE STUDIES · NO CLIENT DATA</p>
     </section>
 
-    <section class="about-section container" id="about" data-chapter="04" aria-labelledby="about-title"><div data-reveal><p class="section-index mono"><span>04</span> / A LITTLE ABOUT ME</p><h2 id="about-title">An engineer’s mindset.<br /><span class="muted">A thoughtful eye.</span></h2></div><div class="about-copy" data-reveal><p>I’m Mostafa Asadi, a senior frontend engineer connecting sound architecture with thoughtful interfaces.</p><p>I make complex products easier to use and maintain.</p><div class="about-facts"><span>B.Sc. Computer Engineering · Software</span><span>Islamic Azad University, Tehran North Branch</span><span>English · Advanced</span><span>Agile & Scrum collaboration</span></div><a class="text-link" href={resumeUrl}>View the full resume <span aria-hidden="true">↗</span></a></div></section>
+    <section class="about-section container" id="about" data-chapter="04" aria-labelledby="about-title"><div data-reveal><p class="section-index mono"><span>04</span> / A LITTLE ABOUT ME</p><h2 id="about-title">An engineer’s mindset<br /><span class="muted">A thoughtful eye</span></h2></div><div class="about-copy" data-reveal><p>I’m Mostafa Asadi, a senior frontend engineer connecting sound architecture with thoughtful interfaces</p><p>I make complex products easier to use and maintain</p><div class="about-facts"><span>Bachelor of Science Computer Engineering · Software</span><span>Islamic Azad University, Tehran North Branch</span><span>English · Advanced</span><span>Agile & Scrum collaboration</span></div><a class="text-link" href={resumeUrl}>View the full resume <span aria-hidden="true">↗</span></a></div></section>
 
     <section class="contact-section container" id="contact" aria-labelledby="contact-title">
       <p class="section-index mono"><span>05</span> / GET IN TOUCH</p>
       <div class="contact-grid">
         <div class="contact-invitation" data-reveal>
           <h2 id="contact-title">Have a project<br />in mind?</h2>
-          <p>Let’s talk about your next product.</p>
+          <p>Let’s talk about your next product</p>
           <div class="contact-socials"><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></div>
         </div>
         <div class="contact-methods" data-reveal>
@@ -88,5 +88,5 @@ const principles = [
       </div>
     </section>
   </main>
-  <footer class="site-footer container"><span>Designed &amp; built by Mostafa Asadi</span><span class="footer-note">Thoughtfully designed. Carefully engineered.</span><a href="#" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></a></footer>
+  <footer class="site-footer container"><span>Designed &amp; built by Mostafa Asadi</span><span class="footer-note">Thoughtfully designed Carefully engineered</span><a href="#" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></a></footer>
 </Layout>

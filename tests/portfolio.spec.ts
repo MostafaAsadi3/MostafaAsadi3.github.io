@@ -69,8 +69,8 @@ test.describe('server-rendered content', () => {
   test.use({ javaScriptEnabled: false });
   test('content is readable before client-side JavaScript', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Thoughtful interfaces\.\s*Solid engineering\./);
-    await expect(page.getByRole('heading', { name: /Clear boundaries\.\s*Room to evolve\./ })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Thoughtful interfaces\s*Solid engineering/);
+    await expect(page.getByRole('heading', { name: /Clear boundaries\s*Room to evolve/ })).toBeVisible();
     await page.locator('.work-card summary').first().click();
     await expect(page.getByText('A banking client management and monitoring application', { exact: false })).toBeVisible();
   });
@@ -83,13 +83,13 @@ test('expertise supports selection and keyboard navigation', async ({ page }) =>
   await expect(tabs).toHaveCount(9);
   await tabs.nth(4).click();
   await expect(tabs.nth(4)).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByRole('tabpanel')).toContainText('Make every byte count.');
+  await expect(page.getByRole('tabpanel')).toContainText('Make every byte count');
   await tabs.nth(4).press('ArrowDown');
   await expect(tabs.nth(5)).toBeFocused();
-  await expect(page.getByRole('tabpanel')).toContainText('Protect the essentials.');
+  await expect(page.getByRole('tabpanel')).toContainText('Protect the essentials');
   await tabs.nth(5).press('End');
   await expect(tabs.nth(8)).toBeFocused();
-  await expect(page.getByRole('tabpanel')).toContainText('Ship with confidence.');
+  await expect(page.getByRole('tabpanel')).toContainText('Ship with confidence');
   await tabs.nth(8).press('ArrowDown');
   await expect(tabs.first()).toBeFocused();
 });
